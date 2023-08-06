@@ -15,7 +15,7 @@
 @import "variables";
 @import "bootstrap";
 @import "fonts";
-
+@import "icons";
 // If you do not want to load the customized bootstrap version, just use the following line.
 // @import "~bootstrap/scss/bootstrap";
 
@@ -26,6 +26,23 @@
 body {
 }
 
+.header {
+    display: flex;
+    align-items: center;
+}
+.user-cart-container {
+    display: flex;
+}
+.header-cart {
+    button {
+        display: flex;
+        align-items: center;
+        padding: 0;
+        border: none;
+        background-color: transparent !important;
+        cursor: pointer;
+    }
+}
 //---------------------------------------------
 // 3.Components
 //---------------------------------------------

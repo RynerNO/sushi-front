@@ -1,20 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
-    <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <title>Суши-Бар "Киото"</title>
 </head>
 
 <body>
     <header class="container header">
         <div class="header__logo">
-            <img src="images/logo/logotip.png" alt="">
+            <a href="/" class="navbar-brand">
+                <img src="/images/logo/logo.png" alt='Суши-Бар "Киото"'>
+            </a>
+        </div>
+        <nav class="navbar navbar-expand-lg mx-auto">
+            <div class="container-fluid">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"" href="#">
+                            Меню
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">Роллы</a></li>
+                            <li><a class="dropdown-item" href="#">Горячие роллы</a></li>
+                            <li><a class="dropdown-item" href="#">Напитки</a></li>
+                          </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            О "Киото"
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            Заказ и Доставка
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            Контакты
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div class="user-cart-container">
+            <div>
+                <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"" href="#">
+                    <i class="bi bi-person"></i>
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" href="#">Регистрация</a></li>
+                    <li><a class="dropdown-item" href="#">Вход</a></li>
+                  </ul>
+            </div>
+            <div id="cart" class="header-cart mx-2">
+                <button type="button" data-toggle="dropdown" data-loading-text="Загрузка..." class="dropdown-toggle" aria-expanded="false">
+                    <i class="bi bi-basket3 mx-1"></i>
+                    <span id="cart-total">Корзина: 0 (0 руб)</span></button>
+                <ul class="dropdown-menu pull-right"><li>
+                    <p class="text-center" style="margin-bottom: 0;">Ваша корзина пуста!</p>
+                  </li></ul>
+              </div>
         </div>
     </header>
 
 
 
 </body>
+
 </html>
