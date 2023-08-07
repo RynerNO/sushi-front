@@ -10,31 +10,42 @@
 
 <body>
     <header class="container-xl header">
+        <!-- Logo block -->
         <div class="header__logo">
             <a href="/" class="navbar-brand">
                 <img src="/images/logo/logo.png" alt='Суши-Бар "Киото"' id="logoImg">
             </a>
         </div>
-       
+       <!-- Logo block -->
+
         <div class="user-cart-container ms-auto">
+            <!-- SignIn and SignUp  block -->
             <div>
                 <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false" href="#">
                     <i class="bi bi-person fs-5"></i>
                 </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <ul class="dropdown-menu" aria-labelledby="signDropdown">
                     <li><a class="dropdown-item" href="#">Регистрация</a></li>
                     <li><a class="dropdown-item" href="#">Вход</a></li>
                   </ul>
             </div>
-            <div id="cart" class="header-cart mx-2">
-                <button type="button" data-toggle="dropdown" data-loading-text="Загрузка..." class="dropdown-toggle" aria-expanded="false">
+             <!-- SignIn and SignUp  block -->
+
+            <!-- Cart empty block -->
+            <div id="cart" class="header-cart mx-2 dropdown">
+                <button type="button" id="cartDropdown" data-bs-toggle="dropdown" data-bs-offset="10,20" data-loading-text="Загрузка..." class="dropdown-toggle" aria-expanded="false">
                     <i class="bi bi-basket3 mx-2 fs-5"></i>
                     <span id="cart-total">Корзина: 0 (0 руб)</span></button>
-                <ul class="dropdown-menu pull-right"><li>
-                    <p class="text-center" style="margin-bottom: 0;">Ваша корзина пуста!</p>
-                  </li></ul>
+                <ul class="dropdown-menu pull-right" aria-labelledby="cartDropdown">
+                    <li>
+                    <p class="text-center py-3 px-2 mb-0" >Ваша корзина пуста!</p>
+                  </li>
+                </ul>
               </div>
+              <!-- Cart empty block -->
+
         </div>
+        <!-- Nav block -->
         <button class="btn" type="button" id="mobileMenu" title="Открыть меню"><i class="bi bi-list"></i></button>
         <nav class="navbar navbar-expand-md mx-auto nav-menu">
             <div class="container-fluid">
@@ -67,8 +78,10 @@
                 </ul>
             </div>
         </nav>
+        <!-- Nav block -->
     </header>
     <main>
+         <!-- Main page slider block -->
           <div id="main-slider" class="swiper">
             <div class="swiper-wrapper">
               <div class="swiper-slide"><a href="#"><img src="/images/slider/01.png" alt=""></a></div>
@@ -77,6 +90,8 @@
               
             </div>
             <div class="swiper-pagination"></div>
+            </div>
+            <!-- Main page slider block -->
     </main>
 
 
