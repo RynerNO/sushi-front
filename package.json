@@ -38,6 +38,7 @@
         "sass-loader": "^13.3.2",
         "sharp": "^0.32.4",
         "style-loader": "^3.3.3",
+        "swiper": "^10.1.0",
         "trash": "^8.1.1",
         "uuid": "^9.0.0",
         "webpack": "^5.88.2",

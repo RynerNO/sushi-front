@@ -16,6 +16,7 @@
 @import "bootstrap";
 @import "fonts";
 @import "icons";
+@import "swiper";
 // If you do not want to load the customized bootstrap version, just use the following line.
 // @import "~bootstrap/scss/bootstrap";
 
@@ -55,6 +56,18 @@
 #mobileMenu {
     font-size: 27px;
     display: none;
+}
+.nav-menu {
+        .dropdown-menu {
+            border: none;
+            a {
+                display: block;
+                padding: 8px 15px;
+            }
+        }
+        .nav-menu__menu-dropdown {
+            position: relative;
+        }
 }
 @media(max-width: 828px) {
     .nav-menu {
