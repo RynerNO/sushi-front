@@ -35,7 +35,7 @@
     
 }
 .header-cart {
-    button {
+    .dropdown-button {
         display: flex;
         align-items: center;
         padding: 0;
@@ -97,6 +97,36 @@
         order: 0
     }
 }
+
+// cart
+.cart-item {
+    display: flex;
+    position: relative;
+    .delete-button {
+        right: 0;
+        top: -6px;
+        color: red;
+    }
+}
+
+
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    .minus-button {
+        color: #fff;
+        background-color: red;
+    }
+    .plus-button {
+        color: #fff ;
+        background-color: green;
+    }
+    .minus-button, .plus-button {
+        width: 36px;
+        height: 36px;
+    }
+}
+
 //---------------------------------------------
 // 3.Components
 //---------------------------------------------

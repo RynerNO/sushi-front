@@ -32,7 +32,7 @@
              <!-- SignIn and SignUp  block -->
 
             <!-- Cart empty block -->
-            <div id="cart" class="header-cart mx-2 dropdown">
+            <!-- <div id="cart" class="header-cart mx-2 dropdown">
                 <button type="button" id="cartDropdown" data-bs-toggle="dropdown" data-bs-offset="10,20" data-loading-text="Загрузка..." class="dropdown-toggle" aria-expanded="false">
                     <i class="bi bi-basket3 mx-2 fs-5"></i>
                     <span id="cart-total">Корзина: 0 (0 руб)</span></button>
@@ -41,9 +41,67 @@
                     <p class="text-center py-3 px-2 mb-0" >Ваша корзина пуста!</p>
                   </li>
                 </ul>
-              </div>
+              </div> -->
               <!-- Cart empty block -->
-
+              <!-- Cart not empty block -->
+              <div id="cart" class="header-cart mx-2 dropdown">
+                <button class="dropdown-button" type="button" id="cartDropdown" data-bs-toggle="dropdown" data-bs-auto-close="outside" data-loading-text="Загрузка..." class="dropdown-toggle" aria-expanded="false">
+                  <i class="bi bi-basket3 mx-2 fs-5"></i>
+                  <span id="cart-total">Корзина: 0 (0 руб)</span>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="cartDropdown">
+                  <li>
+                    <div class="cart-item p-3" price="100">
+                      <button type="button" class="border-0 bg-transparent delete-button position-absolute"><i class="bi bi-x fs-4"></i></button>
+                      <div>
+                        <img src="/images/product/01.jpg" alt="Филадельфия">
+                      
+                      </div>
+                      <div class="ms-4">
+                        <p class="fs-4">Филадельфия</p>
+                      <div class="d-flex align-items-center">
+                        <div class="quantity-controls">
+                        <button type="button" role="button" class="border-0 me-1 minus-button" title="Убрать"><i class="bi bi-dash fs-5"></i></button>
+                        <p class="quantity mb-0 fs-5 mx-3">1</p>
+                        
+                        <button type="button" role="button" class="border-0 ms-1 plus-button" title="Добавить"><i class="bi bi-plus fs-5"></i></button>
+                      </div>
+                        <p class="mb-0 fs-5 ms-3 price">100р</p>
+                      </div>
+                    </div>
+                    </div>
+                    <hr class="dropdown-divider">
+                  </li>
+                  
+                  <li>
+                    <div class="cart-item p-3" price="100">
+                      <button type="button" class="border-0 bg-transparent delete-button position-absolute"><i class="bi bi-x fs-4"></i></button>
+                      <div>
+                        <img src="/images/product/01.jpg" alt="Филадельфия">
+                      
+                      </div>
+                      <div class="ms-4">
+                        <p class="fs-4">Филадельфия</p>
+                      <div class="d-flex align-items-center">
+                        <div class="quantity-controls">
+                        <button type="button" role="button" class="border-0 me-1 minus-button" title="Убрать"><i class="bi bi-dash fs-5"></i></button>
+                        <p class="quantity mb-0 fs-5 mx-3">1</p>
+                        
+                        <button type="button" role="button" class="border-0 ms-1 plus-button" title="Добавить"><i class="bi bi-plus fs-5"></i></button>
+                      </div>
+                        <p class="mb-0 fs-5 ms-3 price">100р</p>
+                      </div>
+                    </div>
+                    </div>
+                    <hr class="dropdown-divider">
+                  </li>
+                  <li class="d-flex justify-content-center my-2 mt-4">
+                    <a href="#" class="btn btn-success">Оформить заказ</a>
+                  </li>
+                </ul>
+              </div>
+              
+              <!-- Cart not empty block -->
         </div>
         <!-- Nav block -->
         <button class="btn" type="button" id="mobileMenu" title="Открыть меню"><i class="bi bi-list"></i></button>

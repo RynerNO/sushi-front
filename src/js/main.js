@@ -49,3 +49,75 @@ const swiper = new Swiper('#main-slider', {
     clickable: true, // Allow clicking on pagination dots
 },
 });
+
+
+
+// CART
+
+const cartItems = document.querySelectorAll('.cart-item')
+// TODO: Calculed when product is added
+let totalPrice = 200;
+let totalQuantity = cartItems.length;
+
+for(const item of cartItems) {
+  // TODO: Get Price from back-end and calculate
+  const price = parseInt(item.getAttribute('price'));
+  const priceEl = item.querySelector('.price')
+  item.querySelector('.minus-button').addEventListener('click', () => {
+   let quantity = item.querySelector('.quantity').innerText
+    quantity = parseInt(quantity) || 1
+    let oldPrice = calcPrice(price, quantity)
+    console.log(oldPrice)
+    if(quantity === 1) return;
+    quantity -= 1
+    
+    
+    const newPrice = calcPrice(price, quantity)
+    // Change summary
+    totalQuantity -=1
+    totalPrice = totalPrice - oldPrice + newPrice
+
+    priceEl.innerText = `${newPrice}p`
+    item.querySelector('.quantity').innerText = quantity
+    summaryPriceUpdate()
+  })
+
+
+  item.querySelector('.plus-button').addEventListener('click', () => {
+    let quantity = item.querySelector('.quantity').innerText
+     quantity = parseInt(quantity) || 1
+     let oldPrice = calcPrice(price, quantity)
+     quantity += 1
+     item.querySelector('.quantity').innerText = quantity
+     
+    const newPrice = calcPrice(price, quantity)
+     // Change summary
+    totalQuantity +=1
+    totalPrice = totalPrice - oldPrice + newPrice
+    priceEl.innerText = `${newPrice}p`
+    summaryPriceUpdate()
+   })
+
+
+   item.querySelector('.delete-button').addEventListener('click', () => {
+    let quantity = item.querySelector('.quantity').innerText
+     quantity = parseInt(quantity) || 1
+    const newPrice = calcPrice(price, quantity)
+    totalQuantity -= quantity
+    totalPrice = totalPrice - newPrice
+    item.parentNode.remove()
+    summaryPriceUpdate()
+   })
+   
+}
+// TODO: Get Price from back-end and calculate
+function calcPrice(price, quantity) {
+  return price * quantity
+}
+
+function summaryPriceUpdate() {
+  const totalEl = document.querySelector('#cart-total')
+  totalEl.innerText = `Корзина: ${totalQuantity} (${totalPrice} руб)`
+  
+}
+summaryPriceUpdate()
