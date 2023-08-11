@@ -99,6 +99,9 @@
 }
 
 // cart
+#cart {
+    z-index: 9999;
+}
 .cart-item {
     display: flex;
     position: relative;
