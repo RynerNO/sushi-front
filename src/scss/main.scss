@@ -127,6 +127,26 @@
     }
 }
 
+// -------
+// Foooter 
+// -------
+.footer {
+    background: #3b4250;
+    &__nav-link {
+        text-decoration: none;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+    .social {
+        width: 30px;
+        height: 30px;
+    }
+    .contacts {
+        background-color: #4b515f;
+    }
+}
+
 //---------------------------------------------
 // 3.Components
 //---------------------------------------------
