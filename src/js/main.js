@@ -6,7 +6,7 @@ import {initBootstrap} from "./bootstrap.js";
 
 // import Swiper JS
 import Swiper from 'swiper';
-import { Pagination, Autoplay } from 'swiper/modules';
+import { Pagination, Autoplay, Navigation } from 'swiper/modules';
 // Loading bootstrap with optional features
 initBootstrap({
   tooltip: true,
@@ -28,12 +28,16 @@ mobileMenuBtn.addEventListener('click', () => {
   } else navMenu.style.height = "0px"
 })
 
+
+// logo image change for small devices
 if(window && window.innerWidth <= 828) {
   const logoImg = document.querySelector('#logoImg');
   logoImg.src = "/images/logo/logtip.png"
 }
 
-const swiper = new Swiper('#main-slider', {
+
+// Slider with promotions
+const promotionsSwiper = new Swiper('#main-slider', {
   modules: [Pagination, Autoplay],
   // Optional parameters
   direction: "horizontal",
@@ -48,6 +52,22 @@ const swiper = new Swiper('#main-slider', {
     el: '.swiper-pagination',
     clickable: true, // Allow clicking on pagination dots
 },
+});
+
+// Slider with popular items
+
+const popularSwiper = new Swiper('#popular-slider', {
+  modules: [Navigation],
+  // Optional parameters
+  direction: "horizontal",
+  slidesPerView: 3,
+  loop: true,
+  spaceBetween: 30,
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+
 });
 
 

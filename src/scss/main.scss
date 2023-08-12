@@ -129,7 +129,27 @@
         height: 36px;
     }
 }
+// -------
+// Categories 
+// -------
+.categories {
+    &__item-caption {
+        background: rgb(17 17 17 / 46%);
+        bottom: 0;
+        left: 0;
+    }
+}
 
+// -------
+// Popular products slider
+// -------
+.product-slide {
+    img {
+        width: 255px;
+        height: 178px;
+        object-fit: cover;
+    }
+}
 // -------
 // Foooter 
 // -------
