@@ -7,6 +7,12 @@ import {initBootstrap} from "./bootstrap.js";
 // import Swiper JS
 import Swiper from 'swiper';
 import { Pagination, Autoplay, Navigation } from 'swiper/modules';
+
+
+// GMAPS
+
+import { Loader } from '@googlemaps/js-api-loader';
+
 // Loading bootstrap with optional features
 initBootstrap({
   tooltip: true,
@@ -85,8 +91,57 @@ const popularSwiper = new Swiper('#popular-slider', {
 });
 
 
+// GMAPS
+
+const loader = new Loader({
+  apiKey: process.env.GMAPS_API,
+  version: "weekly",
+  libraries: ["places"]
+});
+
+
+// Promise for a specific library
+async function initMap() {
+  const { Map} = await loader.importLibrary('maps')
+  const { Marker} = await loader.importLibrary('marker')
+
+ 
+    const mapOptions = {
+      center: {
+        lat: 51.0645985892122,
+        lng: 17.04091076220136
+      },
+      zoom: 19,
+      disableDefaultUI: true
+    };
+    const map = new Map(document.getElementById("map"), {...mapOptions});
+    const marker = new Marker({
+      position: {
+        lat: 51.0645985892122,
+        lng: 17.04091076220136
+      },
+      map,
+      title:"Суши-Бар \"Киото\""
+  });
+ 
+}
+const map = document.getElementById('map')
+if(map) {
+  initMap()
+}
 
 // CART
+const emptyCartHtml = `
+<button type="button" class="dropdown-button" id="cartDropdown" data-bs-toggle="dropdown" data-bs-offset="10,20" data-loading-text="Загрузка..." class="dropdown-toggle" aria-expanded="false">
+    <i class="bi bi-basket3 mx-2 fs-5"></i>
+    <span id="cart-total">Корзина: 0 (0 руб)</span></button>
+<ul class="dropdown-menu pull-right" aria-labelledby="cartDropdown">
+    <li>
+    <p class="text-center py-3 px-2 mb-0" >Ваша корзина пуста!</p>
+  </li>
+</ul>
+`
+const cartEl = document.querySelector('#cart')
 
 const cartItems = document.querySelectorAll('.cart-item')
 // TODO: Calculed when product is added
@@ -140,6 +195,7 @@ for(const item of cartItems) {
     totalQuantity -= quantity
     totalPrice = totalPrice - newPrice
     item.parentNode.remove()
+    if(document.querySelectorAll('.cart-item').length === 0) return cartEl.innerHTML = emptyCartHtml
     summaryPriceUpdate()
    })
    
@@ -154,4 +210,8 @@ function summaryPriceUpdate() {
   totalEl.innerText = `Корзина: ${totalQuantity} (${totalPrice} руб)`
   
 }
+
+
+
+
 summaryPriceUpdate()

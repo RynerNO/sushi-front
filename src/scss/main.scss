@@ -170,6 +170,41 @@
     }
 }
 
+
+
+
+
+
+///--------------------------------------------
+/// Misc
+/// -------------------------------------------
+.title-section {
+    margin-top: 0;
+    margin-bottom: 65px;
+    font-size: 36px;
+    text-align: center;
+    span:after {
+        content: "";
+        position: absolute;
+        top: calc(100% + 15px);
+        left: 0;
+        right: 0;
+        height: 1px;
+        width: 50%;
+        margin: 0 auto;
+        background-color: #e45245;
+    }
+}
+
+///--------------------------------------------
+/// Map
+/// -------------------------------------------
+#map {
+    width: 550px;
+    height: 260px;
+}
+
+
 //---------------------------------------------
 // 3.Components
 //---------------------------------------------

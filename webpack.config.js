@@ -95,6 +95,10 @@ export default {
     // Inject styles and scripts into the HTML
     new HtmlWebpackPlugin({
       template: path.resolve(process.cwd(), "src", "html", "index.html")
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'contacts.html',
+      template: path.resolve(process.cwd(), "src", "html", "contacts.html")
     })
   ],
 
@@ -104,7 +108,8 @@ export default {
       directory: path.resolve(process.cwd(), "public")
     },
     watchFiles: [
-      path.resolve(process.cwd(), "src", "html", "index.html")
+      path.resolve(process.cwd(), "src", "html", "index.html"),
+      path.resolve(process.cwd(), "src", "html", "contacts.html")
     ],
     compress: true,
     port: process.env.PORT || 9090,
