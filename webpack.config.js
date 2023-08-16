@@ -101,8 +101,8 @@ export default {
       template: path.resolve(process.cwd(), "src", "html", "contacts.html")
     }),
     new HtmlWebpackPlugin({
-      filename: 'category.html',
-      template: path.resolve(process.cwd(), "src", "html", "category.html")
+      filename: 'product.html',
+      template: path.resolve(process.cwd(), "src", "html", "product.html")
     })
   ],
 
@@ -114,7 +114,8 @@ export default {
     watchFiles: [
       path.resolve(process.cwd(), "src", "html", "index.html"),
       path.resolve(process.cwd(), "src", "html", "contacts.html"),
-      path.resolve(process.cwd(), "src", "html", "category.html")
+      path.resolve(process.cwd(), "src", "html", "category.html"),
+      path.resolve(process.cwd(), "src", "html", "product.html")
     ],
     compress: true,
     port: process.env.PORT || 9090,
