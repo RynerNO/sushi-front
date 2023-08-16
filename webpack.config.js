@@ -99,6 +99,10 @@ export default {
     new HtmlWebpackPlugin({
       filename: 'contacts.html',
       template: path.resolve(process.cwd(), "src", "html", "contacts.html")
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'category.html',
+      template: path.resolve(process.cwd(), "src", "html", "category.html")
     })
   ],
 
@@ -109,7 +113,8 @@ export default {
     },
     watchFiles: [
       path.resolve(process.cwd(), "src", "html", "index.html"),
-      path.resolve(process.cwd(), "src", "html", "contacts.html")
+      path.resolve(process.cwd(), "src", "html", "contacts.html"),
+      path.resolve(process.cwd(), "src", "html", "category.html")
     ],
     compress: true,
     port: process.env.PORT || 9090,

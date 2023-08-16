@@ -203,8 +203,28 @@
     width: 550px;
     height: 260px;
 }
-
-
+///--------------------------------------------
+/// Sidebar category page
+/// -------------------------------------------
+.product-sidebar {
+    a:hover {
+        color:#7A1E1E !important;
+    }
+    &__active {
+        color: #e45245 !important;
+    }
+}
+///--------------------------------------------
+/// Product category page
+/// -------------------------------------------
+.product {
+    max-width: 353px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    &:hover {
+        box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    }
+}
+/// 
 //---------------------------------------------
 // 3.Components
 //---------------------------------------------
