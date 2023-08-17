@@ -103,6 +103,10 @@ export default {
     new HtmlWebpackPlugin({
       filename: 'product.html',
       template: path.resolve(process.cwd(), "src", "html", "product.html")
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'category.html',
+      template: path.resolve(process.cwd(), "src", "html", "category.html")
     })
   ],
 
