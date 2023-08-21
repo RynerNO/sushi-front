@@ -145,181 +145,108 @@
         <!-- Nav block -->
     </header>
     <main>
-         <!-- Main page slider block -->
-          <div id="main-slider" class="swiper my-3">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide"><a href="#"><img src="/images/slider/01.jpg" alt=""></a></div>
-              <div class="swiper-slide"><a href="#"><img src="/images/slider/02.jpg" alt=""></a></div>
-              <div class="swiper-slide"><a href="#"><img src="/images/slider/03.jpg" alt=""></a></div>
-              
-            </div>
-            <div class="swiper-pagination"></div>
-            </div>
-            <!-- Main page slider block -->
+        <div class="container">
+                  <!-- Breadcrumbs -->
+                  <nav style="--bs-breadcrumb-divider: '/';" aria-label="breadcrumb">
+                    <ol class="breadcrumb m-4">
+                        <li class="breadcrumb-item"><a href="/"><i class="bi bi-house-door-fill text-danger"></i></a></li>
+                        <li class="breadcrumb-item text-danger" aria-current="page text-disabled">Аккаунт</li>
+                        <li class="breadcrumb-item active" aria-current="page text-disabled">Регистрация</li>
+                    </ol>
+                </nav>
+                <!-- Breadcrumbs -->
 
+                <div class="card-body px-4 py-5 px-md-5 w-50 mx-auto">
+                    <form>
+                      <!-- 2 column grid layout with text inputs for the first and last names -->
+                      <div class="row">
+                        <div class="col-md-6 mb-4">
+                          <div class="form-outline">
+                            <input type="text" id="name" class="form-control" />
+                            <label class="form-label" for="name">Имя</label>
+                          </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                          <div class="form-outline">
+                            <input type="text" id="lastName" class="form-control" />
+                            <label class="form-label" for="lastName">Фамилия</label>
+                          </div>
+                        </div>
+                      </div>
+        
+                     
+                      <div class="form-outline mb-4">
+                        <input type="email" id="number" class="form-control" />
+                        <label class="form-label" for="number">Номер телефона</label>
+                      </div>
+        
+                      
+                      <div class="form-outline mb-4">
+                        <input type="password" id="email" class="form-control" />
+                        <label class="form-label" for="email">Почта</label>
+                      </div>
+                      
+                      <div class="form-outline mb-4">
+                        <input type="password" id="nickname" class="form-control" />
+                        <label class="form-label" for="nickname">Имя пользователя</label>
+                      </div>
 
-
-   
-
-    <!-- Info -->
-    <div class="container my-3 ">
-      <div class="row">
-        <div class="col-lg-4 d-flex align-items-center justify-content-center flex-column">
-          <img src="/images/icons/payment.png" alt="">
-          <p class="mt-2 mb-0 fs-5">Удобная оплата картой</p>
+                      <div class="form-outline mb-4">
+                        <input type="password" id="password" class="form-control" />
+                        <label class="form-label" for="password">Пароль</label>
+                      </div>
+                      
+                      <button type="submit" class="btn btn-primary btn-block mb-4">
+                        Регистрация
+                      </button>
+        
+            
+                    </form>
+                  </div>
         </div>
-         <div  class="col-lg-4 d-flex align-items-center justify-content-center flex-column my-3">  
-          <img src="/images/icons/sushi.png" alt="">
-          <p class="mt-2 mb-0 fs-5">Только свежие продукты</p>
-        </div>
-         <div class="col-lg-4 d-flex align-items-center justify-content-center flex-column">
-          <img src="/images/icons/delivery.png" alt="">
-          <p class="mt-2 mb-0 fs-5">Бесплатная доставка от 2000Р</p>
-        </div>
-      </div> 
-  </div>
-<!-- Info -->
+    </main>
 
-<!-- Categories -->
-<div class="container categories">
-  <h3 class="text-center my-5">Меню</h3>
-  <div class="d-flex flex-wrap justify-content-center">
-    <div class="position-relative categories__item rounded overflow-hidden mx-3 my-2">
-      <a href="/category.html">
-      <img src="/images/product/sushi.png" alt="Суши">
-      <div class="position-absolute categories__item-caption w-100 text-light d-flex justify-content-center align-items-center  ">
-      <p>Суши</p>
-    </div>
-  </a>
-    </div>
-    <div class="position-relative categories__item rounded overflow-hidden mx-3 my-2">
-      <a href="/category.html">
-      <img src="/images/product/roll.jpg" alt="Роллы">
-      <div class="position-absolute categories__item-caption w-100 text-light d-flex justify-content-center align-items-center  ">
-      <p>Роллы</p>
-    </div>
-  </a>
-    </div>
-    
-    
-
-    <div class="position-relative categories__item rounded overflow-hidden mx-3 my-2">
-      <a href="/category.html">
-      <img src="/images/product/hotRoll.jpg" alt="Роллы">
-      <div class="position-absolute categories__item-caption w-100 text-light d-flex justify-content-center align-items-center  ">
-      <p>Горячие роллы</p>
-    </div>
-  </a>
-    </div>
-
-    <div class="position-relative categories__item rounded overflow-hidden mx-3 my-2">
-      <a href="/category.html">
-      <img src="/images/product/drink.jpg" alt="Роллы">
-      <div class="position-absolute categories__item-caption w-100 text-light d-flex justify-content-center align-items-center  ">
-      <p>Напитки</p>
-    </div>
-  </a>
-    </div>
-  </div>
-
-</div>
-<!-- Categories -->
-
-<!-- Popular slider -->
-<div class="container">
-  <h3 class="text-center my-5">Популярные</h3>
-<div id="popular-slider" class="swiper mb-4">
-  <div class="swiper-wrapper">
-    <div class="swiper-slide"><a href="#" class="text-dark text-decoration-none">
-      <div class="product-slide  d-flex flex-column align-items-center justify-content-center">
-        <img src="/images/product/yaki-makijpg.jpg" alt="">
-        <p class="fw-bold">410 р</p>
-        <p>Яки Маки</p>
-        <button class="btn btn-success rounded-pill fw-bold">Добавить в корзину</button>
-      </div>
-    </a></div>
-    <div class="swiper-slide"><a href="#" class="text-dark text-decoration-none">
-      <div class="product-slide  d-flex flex-column align-items-center justify-content-center">
-        <img src="/images/product/yaki-makijpg.jpg" alt="">
-        <p class="fw-bold">410 р</p>
-        <p>Яки Маки</p>
-        <button class="btn btn-success rounded-pill fw-bold">Добавить в корзину</button>
-      </div>
-    </a></div>
-    <div class="swiper-slide"><a href="#" class="text-dark text-decoration-none">
-      <div class="product-slide  d-flex flex-column align-items-center justify-content-center">
-        <img src="/images/product/yaki-makijpg.jpg" alt="">
-        <p class="fw-bold">410 р</p>
-        <p>Яки Маки</p>
-        <button class="btn btn-success rounded-pill fw-bold">Добавить в корзину</button>
-      </div>
-    </a></div>
-    <div class="swiper-slide"><a href="#" class="text-dark text-decoration-none">
-      <div class="product-slide  d-flex flex-column align-items-center justify-content-center">
-        <img src="/images/product/filadelfiya.jpg" alt="">
-        <p class="fw-bold">610 р</p>
-        <p>Филадельфия Маки</p>
-        <button class="btn btn-success rounded-pill fw-bold">Добавить в корзину</button>
-      </div>
-    </a></div>
-    <div class="swiper-slide"><a href="#" class="text-dark text-decoration-none">
-      <div class="product-slide  d-flex flex-column align-items-center justify-content-center">
-        <img src="/images/product/kioto.png" alt="">
-        <p class="fw-bold">510 р</p>
-        <p>Горячий ролл "Киото"</p>
-        <button class="btn btn-success rounded-pill fw-bold">Добавить в корзину</button>
-      </div>
-    </a></div>
-  </div>
-  <div class="swiper-button-next"></div>
-    <div class="swiper-button-prev"></div>
-  </div>
-</div>
-<!-- Popular slider -->
-
- <!-- Footer -->
-</main>
     <footer class="p-lg-5 p-2 footer">
-      <div class="container-md">
-      <div class="logo m-4">
-        <img src="/images/logo/footer-logo.png" alt="Суши-Бар 'Киото'">
-      </div>
-      <div class="row p-md-3">
-        <div class="col-md-2">
-          <ul class="list-unstyled mb-md-0">
-                      <li><a class="text-light footer__nav-link" href="#">О "Киото"</a></li>
-                      <li><a class="text-light footer__nav-link" href="#">Заказ и доставка</a></li>
-                      <li><a class="text-light footer__nav-link" href="#">Вакансии</a></li>
-                      <li><a class="text-light footer__nav-link" href="#">Политика конфиденциальности </a></li>
-                    </ul>
-          <div class="social my-2"> 
-            <a href="#" target="_blank">
-              <img class="w-100" src="/images/social/vk.svg" alt="VK">
-            </a>
-          </div>
-        </div>  
-        <div class="col-md-4">
-          <ul class="list-unstyled">
-            <li><a class="text-light footer__nav-link" href="#">Условия оплаты</a></li>
-            <li><a class="text-light footer__nav-link" href="#">Подарочные карты</a></li>
-            <li><a class="text-light footer__nav-link" href="#">Партнеры</a></li>
-            <li><a class="text-light footer__nav-link" href="#">Карта сайта</a></li>
-          </ul>
+        <div class="container-md">
+        <div class="logo m-4">
+          <img src="/images/logo/footer-logo.png" alt="Суши-Бар 'Киото'">
         </div>
-        <div class="col-md-6 w-md-100 p-2">
-          <div class="contacts d-flex flex-column align-items-center p-md-4 mt-lg-n4">
-            <div>
-            <div class="mb-3"><span class="text-light fs-4">Суши-бар "Киото"</span></div>
-            <div class="mb-3"><span class="text-light">Адрес: Вроцлав, ул. Асфальтова, д. 1 </span>  </div>
-            <div class="mb-3"><span class="text-light">Телефон: <a class="text-light text-decoration-none" href="tel:+7883889988" >+7-888-388-99-88</a></span></div>
-            <div class="mb-3"><span class="text-light">Режим работы: <br>Вс-Чт с 12.00 до 01.00<br> Пт-Сб с 12.00 до 02.00</span></div>
+        <div class="row p-md-3">
+          <div class="col-md-2">
+            <ul class="list-unstyled mb-md-0">
+                        <li><a class="text-light footer__nav-link" href="#">О "Киото"</a></li>
+                        <li><a class="text-light footer__nav-link" href="#">Заказ и доставка</a></li>
+                        <li><a class="text-light footer__nav-link" href="#">Вакансии</a></li>
+                        <li><a class="text-light footer__nav-link" href="#">Политика конфиденциальности </a></li>
+                      </ul>
+            <div class="social my-2"> 
+              <a href="#" target="_blank">
+                <img class="w-100" src="/images/social/vk.svg" alt="VK">
+              </a>
+            </div>
+          </div>  
+          <div class="col-md-4">
+            <ul class="list-unstyled">
+              <li><a class="text-light footer__nav-link" href="#">Условия оплаты</a></li>
+              <li><a class="text-light footer__nav-link" href="#">Подарочные карты</a></li>
+              <li><a class="text-light footer__nav-link" href="#">Партнеры</a></li>
+              <li><a class="text-light footer__nav-link" href="#">Карта сайта</a></li>
+            </ul>
           </div>
+          <div class="col-md-6 w-md-100 p-2">
+            <div class="contacts d-flex flex-column align-items-center p-md-4 mt-lg-n4">
+              <div>
+              <div class="mb-3"><span class="text-light fs-4">Суши-бар "Киото"</span></div>
+              <div class="mb-3"><span class="text-light">Адрес: Вроцлав, ул. Асфальтова, д. 1 </span>  </div>
+              <div class="mb-3"><span class="text-light">Телефон: <a class="text-light text-decoration-none" href="tel:+7883889988" >+7-888-388-99-88</a></span></div>
+              <div class="mb-3"><span class="text-light">Режим работы: <br>Вс-Чт с 12.00 до 01.00<br> Пт-Сб с 12.00 до 02.00</span></div>
+            </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    </footer>
-
-</body>
-
-</html>
+      </footer>
+  
+  </body>
+  
+  </html>

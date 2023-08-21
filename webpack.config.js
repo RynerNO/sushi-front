@@ -107,6 +107,14 @@ export default {
     new HtmlWebpackPlugin({
       filename: 'category.html',
       template: path.resolve(process.cwd(), "src", "html", "category.html")
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'login.html',
+      template: path.resolve(process.cwd(), "src", "html", "login.html")
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'register.html',
+      template: path.resolve(process.cwd(), "src", "html", "register.html")
     })
   ],
 
@@ -119,7 +127,9 @@ export default {
       path.resolve(process.cwd(), "src", "html", "index.html"),
       path.resolve(process.cwd(), "src", "html", "contacts.html"),
       path.resolve(process.cwd(), "src", "html", "category.html"),
-      path.resolve(process.cwd(), "src", "html", "product.html")
+      path.resolve(process.cwd(), "src", "html", "product.html"),
+      path.resolve(process.cwd(), "src", "html", "login.html"),
+      path.resolve(process.cwd(), "src", "html", "register.html")
     ],
     compress: true,
     port: process.env.PORT || 9090,
