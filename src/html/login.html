@@ -31,77 +31,24 @@
             </div>
              <!-- SignIn and SignUp  block -->
 
-            <!-- Cart empty block -->
-            <!-- <div id="cart" class="header-cart mx-2 dropdown">
-                <button type="button" id="cartDropdown" data-bs-toggle="dropdown" data-bs-offset="10,20" data-loading-text="Загрузка..." class="dropdown-toggle" aria-expanded="false">
-                    <i class="bi bi-basket3 mx-2 fs-5"></i>
-                    <span id="cart-total">Корзина: 0 (0 руб)</span></button>
-                <ul class="dropdown-menu pull-right" aria-labelledby="cartDropdown">
-                    <li>
-                    <p class="text-center py-3 px-2 mb-0" >Ваша корзина пуста!</p>
-                  </li>
-                </ul>
-              </div> -->
-              <!-- Cart empty block -->
-              <!-- Cart not empty block -->
+      
+              <!-- Cart block -->
               <div id="cart" class="header-cart mx-2 dropdown">
                 <button class="dropdown-button dropdown-toggle" type="button" id="cartDropdown" data-bs-toggle="dropdown" data-bs-auto-close="outside" data-loading-text="Загрузка..." aria-expanded="false">
-                  <i class="bi bi-basket3 mx-2 fs-5"></i>
-                  <span id="cart-total" th:text="'Корзина '+${order.getProducts().size()}">Корзина: 0 (0 руб)</span>
+                    <i class="bi bi-basket3 mx-2 fs-5"></i>
+                    <span id="cart-total" th:text="'Корзина '+'('+${order.getProducts().size()}+')'+ ' '+ ${order.fullPrice}+'р'"></span>
                 </button>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="cartDropdown">
-                  <li>
-                    <div class="cart-item p-3" price="100">
-                      <button type="button" class="border-0 bg-transparent delete-button position-absolute"><i class="bi bi-x fs-4"></i></button>
-                      <div>
-                        <img src="/images/product/01.jpg" alt="Филадельфия">
-                      
-                      </div>
-                      <div class="ms-4">
-                        <p class="fs-4">Филадельфия</p>
-                      <div class="d-flex align-items-center">
-                        <div class="quantity-controls">
-                        <button type="button" role="button" class="border-0 me-1 minus-button" title="Убрать"><i class="bi bi-dash fs-5"></i></button>
-                        <p class="quantity mb-0 fs-5 mx-3">1</p>
-                        
-                        <button type="button" role="button" class="border-0 ms-1 plus-button" title="Добавить"><i class="bi bi-plus fs-5"></i></button>
-                      </div>
-                        <p class="mb-0 fs-5 ms-3 price">100р</p>
-                      </div>
-                    </div>
-                    </div>
-                    <hr class="dropdown-divider">
-                  </li>
-                  
-                  <li>
-                    <div class="cart-item p-3" price="100">
-                      <button type="button" class="border-0 bg-transparent delete-button position-absolute"><i class="bi bi-x fs-4"></i></button>
-                      <div>
-                        <img src="/images/product/01.jpg" alt="Филадельфия">
-                      
-                      </div>
-                      <div class="ms-4">
-                        <p class="fs-4">Филадельфия</p>
-                      <div class="d-flex align-items-center">
-                        <div class="quantity-controls">
-                        <button type="button" role="button" class="border-0 me-1 minus-button" title="Убрать"><i class="bi bi-dash fs-5"></i></button>
-                        <p class="quantity mb-0 fs-5 mx-3">1</p>
-                        
-                        <button type="button" role="button" class="border-0 ms-1 plus-button" title="Добавить"><i class="bi bi-plus fs-5"></i></button>
-                      </div>
-                        <p class="mb-0 fs-5 ms-3 price">100р</p>
-                      </div>
-                    </div>
-                    </div>
-                    <hr class="dropdown-divider">
-                  </li>
-                  <li class="d-flex justify-content-center my-2 mt-4">
-                    <a href="/order/current" class="btn btn-success">Оформить заказ</a>
-                  </li>
+                    <li class="d-flex justify-content-center my-2" th:if="${order.getProducts().size()} > 0">
+                        <a href="/order/current" class="btn btn-success">Оформить заказ</a>
+                    </li>
+                    <li th:if="${order.getProducts().size()} == 0">
+                        <p class="text-center py-3 px-2 mb-0" >Ваша корзина пуста!</p>
+                    </li>
                 </ul>
-              </div>
+            </div>
               
-              <!-- Cart not empty block -->
+              <!-- Cart block -->
         </div>
         <!-- Nav block -->
         <button class="btn" type="button" id="mobileMenu" title="Открыть меню"><i class="bi bi-list"></i></button>
@@ -157,18 +104,26 @@
                 <!-- Breadcrumbs -->
 
                 <div class="card-body px-4 py-5 px-md-5 w-50 mx-auto">
-                    <form>
+                    <form method="POST" th:action="@${/login}" id="loginForm" class="needs-validation" novalidate>
                   
                       
                        
-                        <div class="form-outline mb-4">
-                            <input type="password" id="nickname" class="form-control" />
-                            <label class="form-label" for="nickname">Имя пользователя</label>
+                        <div class="form-outline mb-4 position-relative has-validation">
+                            
+                            <input type="text" id="username" name="username" class="form-control" required/>
+                            <label class="form-label" for="username">Имя пользователя</label>
+                            <div class="invalid-tooltip">
+                                Имя пользователя не может быть пустым!
+                              </div>
                           </div>
     
-                          <div class="form-outline mb-4">
-                            <input type="password" id="password" class="form-control" />
+                          <div class="form-outline mb-4 position-relative has-validation">
+                            
+                            <input type="password" id="password" name="password" class="form-control" required/>
                             <label class="form-label" for="password">Пароль</label>
+                            <div class="invalid-tooltip">
+                                Введите пароль!
+                              </div>
                           </div>
         
                       <!-- Submit button -->
@@ -183,45 +138,36 @@
     </main>
 
     <footer class="p-lg-5 p-2 footer">
-        <div class="container-md">
-        <div class="logo m-4">
-          <img src="/images/logo/footer-logo.png" alt="Суши-Бар 'Киото'">
-        </div>
-        <div class="row p-md-3">
-          <div class="col-md-2">
-            <ul class="list-unstyled mb-md-0">
-                        <li><a class="text-light footer__nav-link" href="#">О "Киото"</a></li>
-                        <li><a class="text-light footer__nav-link" href="#">Заказ и доставка</a></li>
-                        <li><a class="text-light footer__nav-link" href="#">Вакансии</a></li>
-                        <li><a class="text-light footer__nav-link" href="#">Политика конфиденциальности </a></li>
-                      </ul>
-            <div class="social my-2"> 
-              <a href="#" target="_blank">
-                <img class="w-100" src="/images/social/vk.svg" alt="VK">
-              </a>
-            </div>
-          </div>  
-          <div class="col-md-4">
-            <ul class="list-unstyled">
-              <li><a class="text-light footer__nav-link" href="#">Условия оплаты</a></li>
-              <li><a class="text-light footer__nav-link" href="#">Подарочные карты</a></li>
-              <li><a class="text-light footer__nav-link" href="#">Партнеры</a></li>
-              <li><a class="text-light footer__nav-link" href="#">Карта сайта</a></li>
-            </ul>
+      <div class="container-md">
+          <div class="logo m-4"><img src="/images/logo/footer-logo.png" alt="Суши-Бар 'Киото'"></div>
+          <div class="row p-md-3">
+              <div class="col-md-2">
+                  <ul class="list-unstyled mb-md-0">
+                      <li><a class="text-light footer__nav-link" href="#">О "Киото"</a></li>
+                      <li><a class="text-light footer__nav-link" href="#">Заказ и доставка</a></li>
+                      <li><a class="text-light footer__nav-link" href="#">Политика конфиденциальности</a></li>
+                      <li><a class="text-light footer__nav-link" href="#">Условия оплаты</a></li>
+                  </ul>
+                  <div class="social my-2"><a href="#" target="_blank"><img class="w-100" src="/images/social/vk.svg"
+                              alt="VK"></a></div>
+              </div>
+              <div class="col-md-4"></div>
+              <div class="col-md-6 w-md-100 p-2">
+                  <div class="contacts d-flex flex-column align-items-center p-md-4 mt-lg-n4">
+                      <div>
+                          <div class="mb-3"><span class="text-light fs-4">Суши-бар "Киото"</span></div>
+                          <div class="mb-3"><span class="text-light">Адрес: Вроцлав, ул. Асфальтова, д. 1</span></div>
+                          <div class="mb-3"><span class="text-light">Телефон: <a
+                                      class="text-light text-decoration-none"
+                                      href="tel:+7883889988">+7-888-388-99-88</a></span></div>
+                          <div class="mb-3"><span class="text-light">Режим работы:<br>Вс-Чт с 12.00 до 01.00<br>Пт-Сб
+                                  с 12.00 до 02.00</span></div>
+                      </div>
+                  </div>
+              </div>
           </div>
-          <div class="col-md-6 w-md-100 p-2">
-            <div class="contacts d-flex flex-column align-items-center p-md-4 mt-lg-n4">
-              <div>
-              <div class="mb-3"><span class="text-light fs-4">Суши-бар "Киото"</span></div>
-              <div class="mb-3"><span class="text-light">Адрес: Вроцлав, ул. Асфальтова, д. 1 </span>  </div>
-              <div class="mb-3"><span class="text-light">Телефон: <a class="text-light text-decoration-none" href="tel:+7883889988" >+7-888-388-99-88</a></span></div>
-              <div class="mb-3"><span class="text-light">Режим работы: <br>Вс-Чт с 12.00 до 01.00<br> Пт-Сб с 12.00 до 02.00</span></div>
-            </div>
-            </div>
-          </div>
-        </div>
       </div>
-      </footer>
+  </footer>
   
   </body>
   

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ru-RU" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Суши-Бар "Киото"</title>
+    <script defer="defer" src="/public/js/main.js"></script>
+    <link href="/public/css/main.css" rel="stylesheet">
+</head>
+
+<body>
+  <header class="container-xl header">
+    <!-- Logo block -->
+    <div class="header__logo">
+        <a href="/" class="navbar-brand">
+            <img src="/images/logo/logo.png" alt='Суши-Бар "Киото"' id="logoImg">
+        </a>
+    </div>
+    <!-- Logo block -->
+
+    <div class="user-cart-container ms-auto">
+        <!-- SignIn and SignUp  block -->
+        <div>
+            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false" href="#">
+                <i class="bi bi-person fs-5"></i>
+            </a>
+            <ul th:if="${not_auth}" class="dropdown-menu" aria-labelledby="signDropdown">
+                <li><a class="dropdown-item" href="/registration">Регистрация</a></li>
+                <li><a class="dropdown-item" href="/login">Вход</a></li>
+            </ul>
+            <ul th:if="${auth}" class="dropdown-menu" aria-labelledby="signDropdown">
+                <li>&nbsp;<span th:text="${auth_user.username}"></span><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="/user/myRoom">Настройки</a></li>
+                <li><a class="dropdown-item" href="/logout">Выход</a></li>
+
+            </ul>
+        </div>
+        <!-- SignIn and SignUp  block -->
+
+        <!-- Cart empty block -->
+        <!-- <div id="cart" class="header-cart mx-2 dropdown">
+            <button type="button" id="cartDropdown" data-bs-toggle="dropdown" data-bs-offset="10,20" data-loading-text="Загрузка..." class="dropdown-toggle" aria-expanded="false">
+                <i class="bi bi-basket3 mx-2 fs-5"></i>
+                <span id="cart-total">Корзина: 0 (0 руб)</span></button>
+            <ul class="dropdown-menu pull-right" aria-labelledby="cartDropdown">
+                <li>
+                <p class="text-center py-3 px-2 mb-0" >Ваша корзина пуста!</p>
+              </li>
+            </ul>
+          </div> -->
+        <!-- Cart empty block -->
+        <!-- Cart not empty block -->
+        <div id="cart" class="header-cart mx-2 dropdown">
+            <button class="dropdown-button dropdown-toggle" type="button" id="cartDropdown" data-bs-toggle="dropdown" data-bs-auto-close="outside" data-loading-text="Загрузка..." aria-expanded="false">
+                <i class="bi bi-basket3 mx-2 fs-5"></i>
+                <span id="cart-total" th:text="'Корзина '+'('+${order.getProducts().size()}+')'+ ' '+ ${order.fullPrice}+'р'"></span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="cartDropdown">
+                <li class="d-flex justify-content-center my-2" th:if="${order.getProducts().size()} > 0">
+                    <a href="/order/current" class="btn btn-success">Оформить заказ</a>
+                </li>
+                <li th:if="${order.getProducts().size()} == 0">
+                    <p class="text-center py-3 px-2 mb-0" >Ваша корзина пуста!</p>
+                </li>
+            </ul>
+        </div>
+        <!-- Cart not empty block -->
+    </div>
+    <!-- Nav block -->
+    <button class="btn" type="button" id="mobileMenu" title="Открыть меню"><i class="bi bi-list"></i></button>
+    <nav class="navbar navbar-expand-md mx-auto nav-menu">
+        <div class="container-fluid">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item nav-menu__menu-dropdown me-xl-4">
+                    <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false" href="#">
+                    Меню
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-start">
+                        <li><a class="dropdown-item" href="/menu/sushi">Суши</a></li>
+                        <li><a class="dropdown-item" href="/menu/roll">Роллы</a></li>
+                        <li><a class="dropdown-item" href="/menu/sets">Наборы</a></li>
+                        <li><a class="dropdown-item" href="/menu/hot-rolls">Горячие роллы</a></li>
+                        <li><a class="dropdown-item" href="/menu/dessert">Десерты</a></li>
+                        <li><a class="dropdown-item" href="/menu/salad">Салаты</a></li>
+                        <li><a class="dropdown-item" href="/menu/drinks">Напитки</a></li>
+                        <li><a class="dropdown-item" href="/menu/sauce">Соусы</a></li>
+
+                    </ul>
+                </li>
+                <li class="nav-item me-xl-4">
+                    <a class="nav-link" href="/kioto">
+                        О "Киото"
+                    </a>
+                </li>
+                <li class="nav-item me-xl-4">
+                    <a class="nav-link" href="/delivery_info">
+                        Заказ и Доставка
+                    </a>
+                </li>
+                <li class="nav-item me-xl-4 ">
+                    <a class="nav-link" href="/contacts">
+                        Контакты
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- Nav block -->
+</header>
+    <main class="container">
+         <!-- Breadcrumbs -->
+         <nav style="--bs-breadcrumb-divider: '/';" aria-label="breadcrumb">
+            <ol class="breadcrumb m-4">
+                <li class="breadcrumb-item"><a href="/"><i class="bi bi-house-door-fill text-danger"></i></a></li>
+                <li class="breadcrumb-item active" aria-current="page text-disabled">О "Киото"</li>
+            </ol>
+        </nav>
+        <!-- Breadcrumbs -->
+        <h1 class="title-section">
+            <span class="position-relative">О "Киото"</span>
+        </h1>
+        <div class="d-flex flex-wrap my-5">
+        <div class="col-md-6 col-sm-12 pe-md-4 text-center">
+            <h6 class="mb-3">Наш on-line ресторан постарается удивить Вас своим богатым ассортиментом блюд, созданным по уникальным рецептам, а главное со всей ответственностью за 100% свежесть и качество!</h2>
+            <h6>Мы работаем исключительно с профессионалами, любящими свое дело! Точно скоординированный процесс работы позволяет сократить Ваше время при оформлении заказа, непосредственном его приготовлении и быстрой доставке. Попробуйте разнообразие японской кухни, не выходя из собственного дома, квартиры или офиса!</h2>
+        </div>
+        <div class="col-md-6 col-sm-12">
+            <img class="w-100" src="/images/photo/01.jpg" alt="">
+        </div>
+    </div>
+    </main>
+    <footer class="p-lg-5 p-2 footer">
+        <div class="container-md">
+        <div class="logo m-4">
+          <img src="/images/logo/footer-logo.png" alt="Суши-Бар 'Киото'">
+        </div>
+        <div class="row p-md-3">
+          <div class="col-md-2">
+            <ul class="list-unstyled mb-md-0">
+                        <li><a class="text-light footer__nav-link" href="/kioto">О "Киото"</a></li>
+                        <li><a class="text-light footer__nav-link" href="/delivery_info">Заказ и доставка</a></li> 
+                        <li><a class="text-light footer__nav-link" href="/policy">Политика конфиденциальности </a></li>
+                      </ul>
+            <div class="social my-2"> 
+              <a href="#" target="_blank">
+                <img class="w-100" src="/images/social/vk.svg" alt="VK">
+              </a>
+            </div>
+          </div>  
+          <div class="col-md-4">
+            <ul class="list-unstyled">
+              <li><a class="text-light footer__nav-link" href="#">Условия оплаты</a></li>
+            </ul>
+          </div>
+          <div class="col-md-6 w-md-100 p-2">
+            <div class="contacts d-flex flex-column align-items-center p-md-4 mt-lg-n4">
+              <div>
+              <div class="mb-3"><span class="text-light fs-4">Суши-бар "Киото"</span></div>
+              <div class="mb-3"><span class="text-light">Адрес: Вроцлав, ул. Асфальтова, д. 1 </span>  </div>
+              <div class="mb-3"><span class="text-light">Телефон: <a class="text-light text-decoration-none" href="tel:+7883889988" >+7-888-388-99-88</a></span></div>
+              <div class="mb-3"><span class="text-light">Режим работы: <br>Вс-Чт с 12.00 до 01.00<br> Пт-Сб с 12.00 до 02.00</span></div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </footer>
+  
+  </body>
+  
+  </html>

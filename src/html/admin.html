@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru-RU">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <script defer="defer" src="/public/js/main.js"></script>
+    <link href="/public/css/main.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+    <nav class="navbar navbar-light bg-light p-3">
+        <div class="d-flex col-12 col-md-3 col-lg-2 mb-2 mb-lg-0 flex-wrap flex-md-nowrap justify-content-between">
+            <a class="navbar-brand" href="#">
+                Admin Panel
+            </a>
+            <button class="navbar-toggler d-md-none collapsed mb-3" type="button" data-toggle="collapse" data-target="#sidebar" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+       
+        <div class="col-12 col-md-5 col-lg-8 d-flex align-items-center justify-content-md-end mt-3 mt-md-0">
+            <div class="mr-3 mt-1">
+                <span></span>
+            </div>
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                  Привет, <span>Name</span>
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <li><a class="dropdown-item" href="/user/myRoom">Личный кабинет</a></li>
+                  <li><a class="dropdown-item" href="/logout">Выйти</a></li>
+                </ul>
+              </div>
+        </div>
+    </nav>
+    <nav class="bg-primary ">
+        <ul class="nav py-3 justify-content-evenly align-items-center">
+            <li class="nav-item btn btn-success"><a href="/admin/orders" class="text-decoration-none text-light">Заказы</a></li>
+            <li class="nav-item btn btn-secondary"><a href="/admin/product" class="text-decoration-none text-light">Продукты</a></li>
+            <li class="nav-item btn btn-secondary"><a href="/admin" class="text-decoration-none text-light">Пользователи</a></li>
+        </ul>
+    </nav>
+</header>
+<main class="min-vh-100 bg-dark">
+    <table class="table table-dark table-hover">
+        <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Time</th>
+              <th scope="col">Full Price</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr th:each="order: ${orders}">
+              <td th:text="${order.id}">11</td>
+              <td th:text="${order.created}">12:14 19.12.2025</td>
+              <td th:text="${order.fullPrice}">19999 USD</td>
+              <td><a th:href="@{order/{id}/show)(id=${order.id})}" href="">Details</a></td>
+              <td><a th:href="@{order/{id}/show)(id=${order.id})}" href="" class="text-danger"><i class="bi bi-trash-fill"></i></a></td>
+            </tr>
+          </tbody>
+    </table>
+    
+</main>
+</body>
+</html>

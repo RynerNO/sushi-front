@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru-RU">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <script defer="defer" src="/public/js/main.js"></script>
+    <link href="/public/css/main.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+    <nav class="navbar navbar-light bg-light p-3">
+        <div class="d-flex col-12 col-md-3 col-lg-2 mb-2 mb-lg-0 flex-wrap flex-md-nowrap justify-content-between">
+            <a class="navbar-brand" href="/admin">
+                Admin Panel
+            </a>
+            <button class="navbar-toggler d-md-none collapsed mb-3" type="button" data-toggle="collapse" data-target="#sidebar" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+       
+        <div class="col-12 col-md-5 col-lg-8 d-flex align-items-center justify-content-md-end mt-3 mt-md-0">
+            <div class="mr-3 mt-1">
+                <span></span>
+            </div>
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                  Привет, <span>Name</span>
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <li><a class="dropdown-item" href="/user/myRoom">Настройки</a></li>
+                  <li><a class="dropdown-item" href="/logout">Выйти</a></li>
+                </ul>
+              </div>
+        </div>
+    </nav>
+</header>
+<main class="container mt-4">
+    <h1 class="title-section">
+        <span class="position-relative">Заказ №12387</span>
+    </h1>
+    <div class="">
+        <div>
+            <span class="fw-bold fs-5">Дата заказа:</span>
+            <span class="fs-5">12:23 21.11.2202</span>
+        </div>
+        <div>
+            <span class="fw-bold fs-5">Полная цена:</span>
+            <span class="fs-5">2202р</span>
+        </div>
+    </div>
+    <h2 class="title-section fs-5">
+        <span class="position-relative">Список продуктов</span>
+    </h2>
+     <div th:each="product :${order.products}">
+         
+         <a th:href="@{/menu/{id}(id=${product.getId()})}" href="#" class="text-decoration-none text-black"
+             >
+             <img th:src="@{${product.image}}" src="/images/product/filadelfiya.jpg">
+             <span th:text="${product.title + ', ' + product.description+ ', ' +product.volume+ ', ' +product.price}">Филадельфия, Лосось, сыр сливочный, огурец, 1, 400</span>
+         </a>
+         
+     </div>
+ </div>
+
+    
+</main>
+</body>
+</html>

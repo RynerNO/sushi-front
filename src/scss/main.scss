@@ -195,7 +195,14 @@
         background-color: #e45245;
     }
 }
-
+#loginForm {
+    .invalid-tooltip {
+        bottom: 105%;
+        margin-bottom: 0.1rem;
+        margin-top: 0;
+        top: unset;
+}
+}
 ///--------------------------------------------
 /// Map
 /// -------------------------------------------

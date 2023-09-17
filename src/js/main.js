@@ -13,6 +13,23 @@ import { Pagination, Autoplay, Navigation } from 'swiper/modules';
 
 import { Loader } from '@googlemaps/js-api-loader';
 
+// Form Validation
+
+const forms = document.querySelectorAll('.needs-validation')
+
+// Loop over them and prevent submission
+Array.prototype.slice.call(forms)
+  .forEach(function (form) {
+    form.addEventListener('submit', function (event) {
+      if (!form.checkValidity()) {
+        event.preventDefault()
+        event.stopPropagation()
+      }
+
+      form.classList.add('was-validated')
+    }, false)
+  })
+
 // Loading bootstrap with optional features
 initBootstrap({
   tooltip: true,
@@ -24,7 +41,7 @@ const navMenu = document.querySelector('.nav-menu');
 
 const mobileMenuBtn = document.querySelector('#mobileMenu')
 let navMenuTimeoutId = null
-mobileMenuBtn.addEventListener('click', () => {
+if(mobileMenuBtn) mobileMenuBtn.addEventListener('click', () => {
   if(navMenuTimeoutId !== null) clearTimeout(navMenuTimeoutId)
   navMenu.classList.toggle('nav-menu_visible')
   if(navMenu.classList.contains('nav-menu_visible')) {
@@ -130,7 +147,7 @@ if(map) {
   initMap()
 }
 
-// CART
+// // CART
 const emptyCartHtml = `
 <button type="button" class="dropdown-button" id="cartDropdown" data-bs-toggle="dropdown" data-bs-offset="10,20" data-loading-text="Загрузка..." class="dropdown-toggle" aria-expanded="false">
     <i class="bi bi-basket3 mx-2 fs-5"></i>
@@ -145,7 +162,7 @@ const cartEl = document.querySelector('#cart')
 
 const cartItems = document.querySelectorAll('.cart-item')
 // TODO: Calculed when product is added
-let totalPrice = 200;
+let totalPrice = 10;
 let totalQuantity = cartItems.length;
 
 for(const item of cartItems) {
@@ -156,7 +173,6 @@ for(const item of cartItems) {
    let quantity = item.querySelector('.quantity').innerText
     quantity = parseInt(quantity) || 1
     let oldPrice = calcPrice(price, quantity)
-    console.log(oldPrice)
     if(quantity === 1) return;
     quantity -= 1
     
@@ -166,7 +182,7 @@ for(const item of cartItems) {
     totalQuantity -=1
     totalPrice = totalPrice - oldPrice + newPrice
 
-    priceEl.innerText = `${newPrice}p`
+    priceEl.innerText = `${newPrice} USD`
     item.querySelector('.quantity').innerText = quantity
     summaryPriceUpdate()
   })
@@ -183,7 +199,7 @@ for(const item of cartItems) {
      // Change summary
     totalQuantity +=1
     totalPrice = totalPrice - oldPrice + newPrice
-    priceEl.innerText = `${newPrice}p`
+    priceEl.innerText = `${newPrice} USD`
     summaryPriceUpdate()
    })
 
@@ -207,7 +223,8 @@ function calcPrice(price, quantity) {
 
 function summaryPriceUpdate() {
   const totalEl = document.querySelector('#cart-total')
-  totalEl.innerText = `Корзина: ${totalQuantity} (${totalPrice} руб)`
+  if(!totalEl) return;
+  totalEl.innerText = `Корзина: ${totalQuantity} (${totalPrice} USD)`
   
 }
 

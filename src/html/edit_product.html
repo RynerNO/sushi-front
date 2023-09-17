@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ru-RU">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <script defer="defer" src="/public/js/main.js"></script>
+    <link href="/public/css/main.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+    <nav class="navbar navbar-light bg-light p-3">
+        <div class="d-flex col-12 col-md-3 col-lg-2 mb-2 mb-lg-0 flex-wrap flex-md-nowrap justify-content-between">
+            <a class="navbar-brand" href="/admin">
+                Admin Panel
+            </a>
+            <button class="navbar-toggler d-md-none collapsed mb-3" type="button" data-toggle="collapse" data-target="#sidebar" aria-controls="sidebar" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+       
+        <div class="col-12 col-md-5 col-lg-8 d-flex align-items-center justify-content-md-end mt-3 mt-md-0">
+            <div class="mr-3 mt-1">
+                <span></span>
+            </div>
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                  Привет, <span>Name</span>
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <li><a class="dropdown-item" href="/user/myRoom">Личный кабинет</a></li>
+                  <li><a class="dropdown-item" href="/logout">Выйти</a></li>
+                </ul>
+              </div>
+        </div>
+    </nav>
+</header>
+<main class="container mt-4">
+
+    <form th:method="post" th:object="${product}" class="needs-validation" novalidate>
+        <div class="form-outline mb-4 position-relative">
+        <label for="title">Название блюда</label>
+        <input type="text" th:field="*{title}" id="title" placeholder="Название" class="form-control" required>
+        <div class="invalid-tooltip">
+            Введите название блюда!
+          </div>
+    </div>
+    <div class="form-outline mb-4 position-relative">
+        <label for="description">Описание блюда</label>
+        <input type="text" th:field="*{description}" id="description" placeholder="Описание" class="form-control" required>
+        <div class="invalid-tooltip">
+            Введите описание блюда!
+          </div>
+    </div>
+        <div class="form-outline mb-4 position-relative">
+        <label for="volume">Масса/объем блюда</label>
+        <input type="text" th:field="*{volume}" id="volume" placeholder="100 г" class="form-control" required>
+        <div class="invalid-tooltip">
+            Введите массу блюда!
+          </div>
+    </div>
+        <div class="form-outline mb-4 position-relative">
+        <label for="price">Цена</label>
+        <input type="text" th:field="*{price}" id="price" placeholder="100" class="form-control" required> 
+        <div class="invalid-tooltip">
+            Введите цену продукта!
+          </div>
+        </div>  
+        <div class="form-outline mb-4 position-relative">
+        <label for="image">Ссылка на фото</label>
+        <input type="text" th:field="*{image}" id="image" placeholder="https://example.com/img.jpg"  class="form-control" required>
+        <div class="invalid-tooltip">
+            Введите ссылку на фото!
+          </div>
+    </div>
+        <div class="form-outline mb-4 position-relative">
+        <label th:for="type">Тип продукта</label>
+        <select th:object="${product}" th:field="*{type}" th:id="type" class="form-select" required>
+         <option selected disabled value="">Выберите тип продукта...</option>
+          <option th:each="type: ${types}" th:value="${type.getId()}" th:text="${type.title}">123
+          </option>
+          <option th:each="type: ${types}" th:value="${type.getId()}" th:text="${type.title}">124
+        </option>
+        </select>
+        <div class="invalid-tooltip">
+            Выберите тип продукта!
+          </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Редактировать</button>
+      </form>
+      
+</main>
+</body>
+</html>

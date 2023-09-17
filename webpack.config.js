@@ -115,7 +115,47 @@ export default {
     new HtmlWebpackPlugin({
       filename: 'register.html',
       template: path.resolve(process.cwd(), "src", "html", "register.html")
-    })
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'admin.html',
+      template: path.resolve(process.cwd(), "src", "html", "admin.html")
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'about.html',
+      template: path.resolve(process.cwd(), "src", "html", "about.html")
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'delivery.html',
+      template: path.resolve(process.cwd(), "src", "html", "delivery.html")
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'policy.html',
+      template: path.resolve(process.cwd(), "src", "html", "policy.html")
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'cart.html',
+      template: path.resolve(process.cwd(), "src", "html", "cart.html")
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'finish-order.html',
+      template: path.resolve(process.cwd(), "src", "html", "finish-order.html")
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'edit_user.html',
+      template: path.resolve(process.cwd(), "src", "html", "edit_user.html")
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'cabinet.html',
+      template: path.resolve(process.cwd(), "src", "html", "cabinet.html")
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'edit_product.html',
+      template: path.resolve(process.cwd(), "src", "html", "edit_product.html")
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'show_order.html',
+      template: path.resolve(process.cwd(), "src", "html", "show_order.html")
+    }),
   ],
 
   // Configure the "webpack-dev-server" plugin
@@ -129,7 +169,17 @@ export default {
       path.resolve(process.cwd(), "src", "html", "category.html"),
       path.resolve(process.cwd(), "src", "html", "product.html"),
       path.resolve(process.cwd(), "src", "html", "login.html"),
-      path.resolve(process.cwd(), "src", "html", "register.html")
+      path.resolve(process.cwd(), "src", "html", "register.html"),
+      path.resolve(process.cwd(), "src", "html", "admin.html"),
+      path.resolve(process.cwd(), "src", "html", "about.html"),
+      path.resolve(process.cwd(), "src", "html", "delivery.html"),
+      path.resolve(process.cwd(), "src", "html", "policy.html"),
+      path.resolve(process.cwd(), "src", "html", "cart.html"),
+      path.resolve(process.cwd(), "src", "html", "finish-order.html"),
+      path.resolve(process.cwd(), "src", "html", "edit_user.html"),
+      path.resolve(process.cwd(), "src", "html", "cabinet.html"),
+      path.resolve(process.cwd(), "src", "html", "edit_product.html"),
+      path.resolve(process.cwd(), "src", "html", "show_order.html"),
     ],
     compress: true,
     port: process.env.PORT || 9090,
